@@ -26,6 +26,7 @@ La arquitectura implementada se muestra en el siguiente diagrama de despliegue:
 ## Resultados
 ### BackEnd
 Los servicios implementados en el backend son:
+
 | path | método | descripción |
 | :---: | :---: | :---: |
 | /Drink/ | GET | Obtiene todos los tragos que se han recopilado en la base de datos |
