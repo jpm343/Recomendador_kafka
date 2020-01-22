@@ -2,6 +2,8 @@ package com.grupo.uno.backend.model;
 
 import com.datastax.driver.core.DataType;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -11,6 +13,8 @@ import java.util.UUID;
 
 @Data
 @Table
+@Getter
+@Setter
 public class Drink {
 
     @PrimaryKey
@@ -34,4 +38,5 @@ public class Drink {
 
     @Column
     private String secondRating;
+
 }
