@@ -1,19 +1,19 @@
 import axios from 'axios';
 
-let api = 'http://localhost:3000/';
+let api = 'http://localhost:4040';
 axios.defaults.baseURL = api;
 
 export const DrinkResources = {
     index() {
-        return axios.get(api + 'drink');
+        return axios.get(api + '/Drink/');
     },
     create(params) {
-        return axios.post(api + 'drink', params);
+        return axios.post(api + '/Drink/', params);
     },
     delete(params) {
-        return axios.delete(api + 'drink/' + params.id);
+        return axios.delete(api + '/Drink/' + params.id);
     },
     edit(params, id) {
-        return axios.put(api + 'drink/' + id, { user: params });
+        return axios.put(api + '/Drink/' + id, { user: params });
     },
 };

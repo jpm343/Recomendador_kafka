@@ -75,14 +75,14 @@
               <v-card-title class="subheading font-weight-bold">{{ item.title }}</v-card-title>
 
               <v-divider></v-divider>
-              <h4 style="padding: 4%">Categoría: {{item.category}}</h4>
-              <h4 style="padding: 4%">Rating: {{item.rating[0]}}</h4>
+              <h4 style="padding: 4%">Categoría: {{item.cateogry}}</h4>
+              <h4 style="padding: 4%">Rating: {{item.firtRating}}</h4>
               <div style="padding: 4%">{{item.directions}}</div>
-              <h4 style="padding: 4%">Ingredientes:</h4>
+             <!--<h4 style="padding: 4%">Ingredientes:</h4>
               <div style="padding: 4%" v-for="n in item.ingredients"
                    :key="n">
                   {{n[0]}}: {{n[1]}}
-              </div>
+              </div>-->
             </v-card>
           </v-col>
         </v-row>
@@ -149,6 +149,7 @@
 </template>
 
 <script>
+  import { DrinkResources } from './../endpoints';
 export default {
   name: 'HelloWorld',
 
@@ -171,91 +172,6 @@ export default {
       'Iron',
     ],
     items: [
-      {
-        "category": "Cocktail",
-        "directions": "Pour all ingredients except the 7-Up into a chilled glass filled with ice cubes. Top with 7-Up and stir gently.",
-        "ingredients": [
-          [
-            "vodka",
-            "1/2 oz"
-          ],
-          [
-            "rum",
-            "1/2 oz"
-          ],
-          [
-            "tequila",
-            "1/2 oz"
-          ],
-          [
-            "gin",
-            "1/2 oz"
-          ],
-          [
-            "Blue Curacao liqueur",
-            "1/2 oz"
-          ],
-          [
-            "sweet and sour mix",
-            "2 oz"
-          ],
-          [
-            "7-Up\u00ae soda",
-            "2 oz"
-          ]
-        ],
-        "rating": [
-          "9.6",
-          "2313"
-        ],
-        "title": "Adios Motherfucker"
-      },
-      {
-        "category": "Cocktail",
-        "directions": "Pour the amaretto liqueur into a cocktail shaker half-filled with ice cubes. Add a splash or two of sweet and sour mix, and shake well. Strain or pour into an old-fashioned glass, garnish with a maraschino cherry and a slice of orange, and serve.",
-        "ingredients": [
-          [
-            "amaretto almond liqueur",
-            "1 1/2 oz"
-          ],
-          [
-            "sweet and sour mix",
-            "1 - 2 splashes"
-          ]
-        ],
-        "rating": [
-          "9.6",
-          "2517"
-        ],
-        "title": "Amaretto Sour"
-      },
-      {
-        "category": "Cocktail",
-        "directions": "Put the juice, cider, and cinnamon sticks into a pan and let simmer on the stove for about 2 hours (not boil). Turn off heat, pour in 1 liter or 2/3 liter Everclear (no taste of alcohol) to the batch and pour into punch cups. Very potent, tastes exactly like apple pie. ",
-        "ingredients": [
-          [
-            "apple juice",
-            "1 gallon"
-          ],
-          [
-            "apple cider",
-            "1/2 gallonfresh"
-          ],
-          [
-            "cinnamon",
-            "3 - 4"
-          ],
-          [
-            "Everclear\u00ae alcohol",
-            "1 liter"
-          ]
-        ],
-        "rating": [
-          "9.7",
-          "481"
-        ],
-        "title": "Apple Pie Punch"
-      },
     ],
   }),
   computed: {
@@ -265,6 +181,13 @@ export default {
     filteredKeys () {
       return this.keys.filter(key => key !== `Name`)
     },
+  },
+  mounted() {
+    DrinkResources.index().then(data=>{
+      this.items = data.data;
+      // eslint-disable-next-line no-console
+      console.log(data.data)
+    })
   },
   methods: {
     nextPage () {
