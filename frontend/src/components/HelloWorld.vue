@@ -31,7 +31,7 @@
                   flat
                   solo-inverted
                   hide-details
-                  label="Search"
+                  label="Buscar"
           />
           <template v-if="$vuetify.breakpoint.mdAndUp">
             <v-spacer></v-spacer>
@@ -90,7 +90,7 @@
 
       <template v-slot:footer>
         <v-row class="mt-2" align="center" justify="center">
-          <span class="grey--text">Items per page</span>
+          <span class="grey--text">Artículos por página</span>
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
               <v-btn
@@ -121,7 +121,7 @@
                   class="mr-4
             grey--text"
           >
-            Page {{ page }} of {{ numberOfPages }}
+            Página {{ page }} de {{ numberOfPages }}
           </span>
           <v-btn
                   fab

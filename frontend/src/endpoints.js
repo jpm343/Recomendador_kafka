@@ -3,21 +3,17 @@ import axios from 'axios';
 let api = 'http://localhost:3000/';
 axios.defaults.baseURL = api;
 
-export const usuariosResources = {
-    user(token) {
-        axios.defaults.headers.Authorization = 'Bearer ' + token;
-        return axios.get(api + 'auth/user');
-    },
+export const DrinkResources = {
     index() {
-        return axios.get(api + 'users');
+        return axios.get(api + 'drink');
     },
     create(params) {
-        return axios.post(api + 'users', params);
+        return axios.post(api + 'drink', params);
     },
     delete(params) {
-        return axios.delete(api + 'users/' + params.id);
+        return axios.delete(api + 'drink/' + params.id);
     },
     edit(params, id) {
-        return axios.put(api + 'users/' + id, { user: params });
+        return axios.put(api + 'drink/' + id, { user: params });
     },
 };
