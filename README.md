@@ -39,7 +39,7 @@ el script consumidor se suscribe a dicho tópico y se conecta a una base de dato
 capturada.
 
 **Productor**
-```
+```python
 from confluent_kafka import Producer
 import json
 import random
@@ -80,7 +80,7 @@ except KeyboardInterrupt:
 ```
 
 **consumidor**
-```
+```python
 from confluent_kafka import Consumer, KafkaError
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
