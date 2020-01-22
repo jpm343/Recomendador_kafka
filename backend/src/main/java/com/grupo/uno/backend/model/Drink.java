@@ -34,7 +34,7 @@ public class Drink {
 
     //the next 2 fields comes froms a size 2 array
     @Column
-    private String firtRating;
+    private String firstRating;
 
     @Column
     private String secondRating;
