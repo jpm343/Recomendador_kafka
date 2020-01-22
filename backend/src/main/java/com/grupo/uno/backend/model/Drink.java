@@ -22,7 +22,7 @@ public class Drink {
     private UUID id;
 
     @Column
-    private String cateogry;
+    private String category;
 
     @Column
     private String directions;
@@ -38,5 +38,8 @@ public class Drink {
 
     @Column
     private String secondRating;
+    
+    @Column
+    private String title;
 
 }
