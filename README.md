@@ -19,9 +19,13 @@ El enfoque para abordar este problema consiste en desarrollar un consumidor que 
 - Apache Cassandra: Base de datos NoSQL distruibuida y basada en el modelo clave-valor. Permite grandes volúmenes de datos en forma distribuida.
 - Docker-compose: Plataforma que automatiza el despliegue de aplicaciones dentro de contenedores de software.
 
+## Arquitectura implementada
+La arquitectura implementada se muestra en el siguiente diagrama de despliegue:
+![alt text](https://raw.githubusercontent.com/jpm343/Recomendador_kafka/master/misc/diagrama_arch.png)
+
 ## Pasos para la ejecución de la plataforma
 Antes de ejecutar la aplicación es necesario instalar ciertas dependencias de python
-#####Dependencias a instalar:
+### Dependencias a instalar:
 **Confluent-kafka**
 Esta librería de python se utiliza para establecer conexión con *Kafka*. Necesaria para desarrollar los scripts productores y consumidores.
 Para instalar se debe usar el siguiente comando:
@@ -34,7 +38,7 @@ Para instalar usar el siguiente comando:
 ```
 pip install cassandra-driver
 ```
-##### Ejecución de scripts de docker
+### Ejecución de scripts de docker
 Los scrpits de docker compose se utilizar para inicializar ciertas funcionalidades necesarias para el funcionamiento de la plataforma. Estos vienen incluidos en el repositorio.
 
 **Primer script: Cassandra**
@@ -59,7 +63,7 @@ Volviendo a la ruta principal del repositorio, se ejecutan los siguiente comando
 cd kafka_cluster
 docker-compose up -d
 ```
-##### Ejecución de Backend y scripts productores-consumidores
+### Ejecución de Backend y scripts productores-consumidores
 
 **Ejecución del backend**
 
