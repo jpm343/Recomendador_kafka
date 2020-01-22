@@ -23,6 +23,24 @@ El enfoque para abordar este problema consiste en desarrollar un consumidor que 
 La arquitectura implementada se muestra en el siguiente diagrama de despliegue:
 ![alt text](https://raw.githubusercontent.com/jpm343/Recomendador_kafka/master/misc/diagrama_arch.png)
 
+## Resultados
+### BackEnd
+Los servicios implementados en el backend son:
+| path | método | descripción |
+| :---: | :---: | :---: |
+| /Drink/ | GET | Obtiene todos los tragos que se han recopilado en la base de datos |
+
+### FrontEnd
+Se desarrolló una sola vista para el frontend:
+![alt text](https://raw.githubusercontent.com/jpm343/Recomendador_kafka/master/misc/home.png)
+![alt text](https://raw.githubusercontent.com/jpm343/Recomendador_kafka/master/misc/table.png)
+
+### Base de Datos
+
+| Usuario | Contraseña | Keyspace |
+| :---: | :---: | :---: |
+| Cassandra | Cassandra | backend |
+
 ## Pasos para la ejecución de la plataforma
 Antes de ejecutar la aplicación es necesario instalar ciertas dependencias de python
 ### Dependencias a instalar:
