@@ -3,6 +3,7 @@
     <h2 style="color:#002f6c" class="d-flex justify-center ma-10">
       Bienvenido al Recomendador de Licores
     </h2>
+    <h3 style="color:#002f6c" class="d-flex justify-center ma-10">Licores recomendados: {{this.count}}</h3>
     <div class="justify-center">
     <v-img
             style="width: 50%;display: block; margin-left: auto; margin-right: auto;"
@@ -75,8 +76,8 @@
               <v-card-title class="subheading font-weight-bold">{{ item.title }}</v-card-title>
 
               <v-divider></v-divider>
-              <h4 style="padding: 4%">Categoría: {{item.cateogry}}</h4>
-              <h4 style="padding: 4%">Rating: {{item.firtRating}}</h4>
+              <h4 style="padding: 4%">Categoría: {{item.category}}</h4>
+              <h4 style="padding: 4%">Rating: {{item.firstRating}}</h4>
               <div style="padding: 4%">{{item.directions}}</div>
              <!--<h4 style="padding: 4%">Ingredientes:</h4>
               <div style="padding: 4%" v-for="n in item.ingredients"
@@ -159,6 +160,7 @@ export default {
     filter: {},
     sortDesc: false,
     page: 1,
+    count: 0,
     itemsPerPage: 4,
     sortBy: 'name',
     keys: [
@@ -186,7 +188,7 @@ export default {
     DrinkResources.index().then(data=>{
       this.items = data.data;
       // eslint-disable-next-line no-console
-      console.log(data.data)
+      this.count = this.items.length;
     })
   },
   methods: {
