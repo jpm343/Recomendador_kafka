@@ -1,6 +1,8 @@
 from confluent_kafka import Consumer, KafkaError
 from cassandra.cluster import Cluster
 from cassanta.auth import PlainTextAuthProvider
+import ast
+import uuid
 
 c = Consumer({
     'bootstrap.servers': '',
@@ -27,9 +29,20 @@ while True:
     if msg.error():
         print("Consumer error: {}".format(msg.error()))
         continue
+    
+    value = msg.value().decode('utf-8')
+    print('Received message: {}'.format(value))
 
-    print('Received message: {}'.format(msg.value().decode('utf-8')))
-    value = msg.value()
+    #parse string to object
+    obj = ast.literal_eval(value)
 
+    session.execute(
+        """
+        INSERT INTO drink (id, category, directions, firtrating, ingredients, secondrating)
+        VALUES (%s, %s, %s, %s, %s, %s)
+        """,
+        (uuid.uuid1(), obj['category'], obj['directions'], obj['rating'][0], str(obj['ingredients']), obj['rating'][1])
+    )
+    
 c.close()
 
