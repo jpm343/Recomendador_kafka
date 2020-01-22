@@ -41,7 +41,7 @@ while True:
         INSERT INTO drink (id, category, directions, firstrating, ingredients, secondrating, title)
         VALUES (%s, %s, %s, %s, %s, %s)
         """,
-        (uuid.uuid1(), obj['category'], obj['directions'], obj['rating'][0], str(obj['ingredients']), obj['rating'][1], obj['title')
+        (uuid.uuid1(), obj['category'], obj['directions'], obj['rating'][0], str(obj['ingredients']), obj['rating'][1], obj['title'])
     )
     
 c.close()
