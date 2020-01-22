@@ -1,11 +1,11 @@
 from confluent_kafka import Consumer, KafkaError
 from cassandra.cluster import Cluster
-from cassanta.auth import PlainTextAuthProvider
+from cassandra.auth import PlainTextAuthProvider
 import ast
 import uuid
 
 c = Consumer({
-    'bootstrap.servers': '',
+    'bootstrap.servers': 'localhost:9092',
     'group.id': 'mygroup',
     'auto.offset.reset': 'earliest'
 })
@@ -38,7 +38,7 @@ while True:
 
     session.execute(
         """
-        INSERT INTO drink (id, category, directions, firtrating, ingredients, secondrating)
+        INSERT INTO drink (id, cateogry, directions, firtrating, ingredients, secondrating)
         VALUES (%s, %s, %s, %s, %s, %s)
         """,
         (uuid.uuid1(), obj['category'], obj['directions'], obj['rating'][0], str(obj['ingredients']), obj['rating'][1])
