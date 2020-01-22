@@ -26,6 +26,7 @@ try:
         i = random.randint(0, len(object_json)-1)
         drink = object_json[i]
         p.produce(topic, str(drink).encode('utf-8'), callback = delivery_report)
+        p.flush()
 
 except KeyboardInterrupt:
     pass
