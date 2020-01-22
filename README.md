@@ -34,7 +34,7 @@ Para instalar usar el siguiente comando:
 ```
 pip install cassandra-driver
 ```
-#####Ejecución de scripts de docker
+##### Ejecución de scripts de docker
 Los scrpits de docker compose se utilizar para inicializar ciertas funcionalidades necesarias para el funcionamiento de la plataforma. Estos vienen incluidos en el repositorio.
 
 **Primer script: Cassandra**
@@ -59,7 +59,8 @@ Volviendo a la ruta principal del repositorio, se ejecutan los siguiente comando
 cd kafka_cluster
 docker-compose up -d
 ```
-#####Ejecución de Backend y scripts productores-consumidores
+##### Ejecución de Backend y scripts productores-consumidores
+
 **Ejecución del backend**
 
 Para ejecutar el backend se ejecutan los siguientes comandos desde el directorio base del repositorio
